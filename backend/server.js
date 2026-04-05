@@ -7,7 +7,6 @@ const path = require("path");
 const fs = require("fs");
 const AdmZip = require("adm-zip");
 const archiver = require("archiver");
-const BASE_URL = process.env.BASE_URL || 'http://localhost:4000';
 
 // Internal Engines
 const authEngine = require("./auth-engine");
@@ -34,7 +33,7 @@ const allowedOrigins = [
   'http://100.106.246.108:3000',
   'http://100.106.246.108:8081',
   'http://100.106.246.108:19006',
-  'https://reel-vault-pi.vercel.app/',
+  'https://reel-vault-pi.vercel.app',
 ];
 
 
