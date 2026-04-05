@@ -753,7 +753,7 @@ app.post("/share", (req, res) => {
   ).run("share_" + Date.now(), itemId, itemType, sharedBy, sharedWith, token);
 
   if (sharedWith === "PUBLIC") {
-    res.json({ link: `${BASE_URL}/public/${token}` });
+    res.json({ link: `${EXPO_PUBLIC_API_URL}/public/${token}` });
   } else {
     if (targetUsername) {
       const targetUser = db
