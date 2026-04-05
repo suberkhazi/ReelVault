@@ -7,6 +7,7 @@ const path = require("path");
 const fs = require("fs");
 const AdmZip = require("adm-zip");
 const archiver = require("archiver");
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4000';
 
 // Internal Engines
 const authEngine = require("./auth-engine");
@@ -752,7 +753,7 @@ app.post("/share", (req, res) => {
   ).run("share_" + Date.now(), itemId, itemType, sharedBy, sharedWith, token);
 
   if (sharedWith === "PUBLIC") {
-    res.json({ link: `${EXPO_PUBLIC_API_URL}/public/${token}` });
+    res.json({ link: `${BASE_URL}/public/${token}` });
   } else {
     if (targetUsername) {
       const targetUser = db
