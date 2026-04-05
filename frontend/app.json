@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/icon.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.suberk.reelvault"
     },
     "web": {
       "output": "static",
@@ -47,7 +48,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "8bd32535-0d10-4c54-8a81-f2aa24da2f16"
+        "projectId": "ceb60903-374b-4a34-91c3-2ad4e61668da"
       }
     }
   }
