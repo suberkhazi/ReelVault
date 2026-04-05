@@ -1,5 +1,5 @@
 
-export const BASE_URL = "http://100.106.246.108:4000";
+export const BASE_URL = process.env.EXPO_PUBLIC_API_URL || "http://localhost:4000";
 
 const withUser = (payload = {}) => {
   const raw =

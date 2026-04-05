@@ -2,6 +2,7 @@ node_modules/
 .expo/
 dist/
 .env
+.env.local
 
 # CRITICAL: Keep personal vault data off GitHub!
 backend/reelvault.db

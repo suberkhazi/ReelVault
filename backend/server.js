@@ -25,7 +25,31 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(cors());
+// CORS Configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:8081',
+  'http://localhost:19006',
+  'http://100.106.246.108:3000',
+  'http://100.106.246.108:8081',
+  'http://100.106.246.108:19006',
+  'https://reel-vault-pi.vercel.app/',
+];
+
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 app.use(express.json());
 
 // Mount the Routers
