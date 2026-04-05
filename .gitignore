@@ -1,0 +1,9 @@
+node_modules/
+.expo/
+dist/
+.env
+
+# CRITICAL: Keep personal vault data off GitHub!
+backend/reelvault.db
+backend/uploads/*
+!backend/uploads/.gitkeep

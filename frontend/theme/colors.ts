@@ -1,0 +1,30 @@
+export const ios = {
+  light: {
+    bg: '#F2F2F7',
+    card: '#FFFFFF',
+    card2: '#F9F9FB',
+    text: '#111111',
+    subtext: '#6B7280',
+    tint: '#0A84FF',
+    success: '#34C759',
+    danger: '#FF3B30',
+    border: 'rgba(60,60,67,0.18)',
+    overlay: 'rgba(0,0,0,0.28)',
+    tab: 'rgba(255,255,255,0.75)',
+    input: '#FFFFFF',
+  },
+  dark: {
+    bg: '#000000',
+    card: '#1C1C1E',
+    card2: '#2C2C2E',
+    text: '#FFFFFF',
+    subtext: '#A1A1AA',
+    tint: '#0A84FF',
+    success: '#30D158',
+    danger: '#FF453A',
+    border: 'rgba(84,84,88,0.55)',
+    overlay: 'rgba(0,0,0,0.45)',
+    tab: 'rgba(28,28,30,0.75)',
+    input: '#1C1C1E',
+  }
+} as const;
