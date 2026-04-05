@@ -7,6 +7,7 @@ const path = require("path");
 const fs = require("fs");
 const AdmZip = require("adm-zip");
 const archiver = require("archiver");
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4000';
 
 // Internal Engines
 const authEngine = require("./auth-engine");
