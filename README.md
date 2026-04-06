@@ -97,12 +97,12 @@ This flow keeps media private while still delivering modern cross-platform UX.
 ![Web Share](./screenshots/web/share.png)
 
 ### Mobile (APK)
-![Mobile Home](./screenshots/mobile/home.png)
-![Mobile Reel Mode](./screenshots/mobile/reel.png)
-![Mobile Share](./screenshots/mobile/share.png)
+![Mobile Home](./screenshots/mobile/home.jpeg)
+![Mobile Reel Mode](./screenshots/mobile/reel.jpeg)
+![Mobile Share](./screenshots/mobile/share.jpeg)
 
 ### AI + Sharing
-![AI Tags](./screenshots/web/ai-tag.png)
+![AI Tags](./screenshots/web/ai-tags.png)
 ![OCR](./screenshots/web/text-file.png)
 
 ---
