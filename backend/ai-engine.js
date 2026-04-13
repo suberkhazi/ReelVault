@@ -11,31 +11,21 @@ const NUM_CORES = 4; // The number of dedicated CPU cores for AI
 const workers = [];
 let currentWorkerIndex = 0;
 
-console.log(`⏳ Spawning a ${NUM_CORES}-Core AI Cluster...`);
-
 // Boot up 4 separate brains on 4 separate CPU threads
 for (let i = 0; i < NUM_CORES; i++) {
   const worker = new Worker(path.join(__dirname, "ai-worker.js"));
 
   worker.on("message", (msg) => {
-    if (msg.type === "ready") {
-      console.log(`👁️ Core ${i + 1} Vision Brain online!`);
-    } else if (msg.type === "success") {
+   if (msg.type === "success") {
       // Write the new tags directly to the SQLite Database
       db.prepare("UPDATE Media SET tags = ? WHERE id = ?").run(
         msg.tags,
         msg.mediaId,
       );
-
-      // Log the success out to the terminal so we can see it working!
-      console.log(
-        `✅ [Core ${i + 1}] Successfully Tagged ${msg.filename}: 🏷️ ${msg.tags}`,
-      );
     } else if (msg.type === "error") {
       console.error(`❌ [Core ${i + 1}] Error on ${msg.filename}:`, msg.error);
     }
   });
-
   workers.push(worker);
 }
 

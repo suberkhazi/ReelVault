@@ -84,11 +84,6 @@ function requireUserId(req, res) {
   return userId;
 }
 
-app.use((req, res, next) => {
-  console.log(`[NETWORK TRAFFIC] Method: ${req.method} | URL: ${req.url}`);
-  next();
-});
-
 // --- BULLETPROOF UPLOAD ROUTE (WITH AI TOGGLE) ---
 app.post("/upload", upload.single("mediaFile"), (req, res) => {
   let { uploaderId, folderId, enableAI } = req.body;
@@ -967,8 +962,6 @@ app.get("/admin/stats", (req, res) => {
       }
     }
 
-    console.log("Total size:", totalSize);
-
     const response = {
       totalUsers,
       totalFiles,
@@ -1043,18 +1036,14 @@ app.delete("/admin/files/:fileId", (req, res) => {
     const fs = require("fs");
     const path = require("path");
 
-    console.log("Deleting file:", fileId, filename);
-
     // Delete from disk
     if (filename) {
       const filePath = path.join(__dirname, "uploads", filename);
-      console.log("File path:", filePath);
-      console.log("File exists:", fs.existsSync(filePath));
 
       if (fs.existsSync(filePath)) {
         try {
           fs.unlinkSync(filePath);
-          console.log("Deleted from disk:", filename);
+
         } catch (e) {
           console.error("Error deleting from disk:", e);
         }
