@@ -27,10 +27,10 @@ io.on("connection", (socket) => {
 
 // CORS Configuration
 const allowedOrigins = [
-  'http://localhost:3000',
+  'http://localhost:4000',
   'http://localhost:8081',
   'http://localhost:19006',
-  'http://100.106.246.108:3000',
+  'http://100.106.246.108:4000',
   'http://100.106.246.108:8081',
   'http://100.106.246.108:19006',
   'https://reel-vault-pi.vercel.app',
@@ -38,7 +38,7 @@ const allowedOrigins = [
 ];
 
 require('dotenv').config();
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4000';
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -1075,7 +1075,7 @@ app.delete("/admin/shares/:shareId", (req, res) => {
 });
 
 // --- STARTUP ---
-const PORT = 3000;
+const PORT = 4000;
 server.listen(PORT, () => {
   console.log(`🚀 ReelVault Server listening on port ${PORT}`);
 });
