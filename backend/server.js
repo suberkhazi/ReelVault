@@ -1074,6 +1074,20 @@ app.delete("/admin/shares/:shareId", (req, res) => {
   }
 });
 
+// --- TESTING ROUTE ---
+app.get("/", (req, res) => {
+  res.json({
+    status: "online",
+    message: "ReelVault Backend is active!",
+    system: "Poco F1 PMOS",
+    links: {
+      auth: "/auth",
+      ai: "/ai",
+      uploads: "/uploads"
+    }
+  });
+});
+
 // --- STARTUP ---
 const PORT = 4000;
 server.listen(PORT, () => {
