@@ -34,6 +34,7 @@ const allowedOrigins = [
   'http://100.106.246.108:8081',
   'http://100.106.246.108:19006',
   'https://reel-vault-pi.vercel.app',
+  'https://poco-f1-pmos.tailbbba48.ts.net'
 ];
 
 require('dotenv').config();
@@ -1074,7 +1075,7 @@ app.delete("/admin/shares/:shareId", (req, res) => {
 });
 
 // --- STARTUP ---
-const PORT = 4000;
+const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`🚀 ReelVault Server listening on port ${PORT}`);
 });
