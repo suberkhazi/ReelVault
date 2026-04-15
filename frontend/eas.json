@@ -12,7 +12,7 @@
       "distribution": "internal",
        "android": {
         "env": {
-          "EXPO_PUBLIC_API_URL": "https://poco-f1-pmos.tailbbba48.ts.net"
+          "EXPO_PUBLIC_API_URL": "https://theorize-spokesman-buggy.ngrok-free.dev"
         }
       }
     },
@@ -22,7 +22,7 @@
         "buildType": "apk"
       },
        "env": {
-          "EXPO_PUBLIC_API_URL": "https://poco-f1-pmos.tailbbba48.ts.net"
+          "EXPO_PUBLIC_API_URL": "theorize-spokesman-buggy.ngrok-free.dev"
         }
     }
   },

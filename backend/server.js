@@ -28,13 +28,10 @@ io.on("connection", (socket) => {
 // CORS Configuration
 const allowedOrigins = [
   'http://localhost:4000',
-  'http://localhost:8081',
-  'http://localhost:19006',
-  'http://100.106.246.108:4000',
-  'http://100.106.246.108:8081',
-  'http://100.106.246.108:19006',
   'https://reel-vault-pi.vercel.app',
-  'https://poco-f1-pmos.tailbbba48.ts.net'
+  'https://theorize-spokesman-buggy.ngrok-free.dev',
+  'https://theorize-spokesman-buggy.ngrok-free.dev',
+  '*'
 ];
 
 require('dotenv').config();
@@ -50,7 +47,7 @@ app.use(cors({
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization','ngrok-skip-browser-warning'],
 }));
 
 app.use(express.json());
