@@ -38,7 +38,7 @@ const allowedOrigins = [
 ];
 
 require('dotenv').config();
-const BASE_URL = process.env.BASE_URL || 'http://localhost:4000';
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 app.use(cors({
   origin: function (origin, callback) {
