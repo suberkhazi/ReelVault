@@ -29,8 +29,7 @@ io.on("connection", (socket) => {
 const allowedOrigins = [
   'http://localhost:4000',
   'https://reel-vault-pi.vercel.app',
-  'https://theorize-spokesman-buggy.ngrok-free.dev',
-  'https://theorize-spokesman-buggy.ngrok-free.dev',
+  'https://poco-f1-pmos.tailbbba48.ts.net',
   '*'
 ];
 

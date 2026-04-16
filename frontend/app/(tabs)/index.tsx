@@ -276,12 +276,7 @@ export default function Home() {
   useEffect(() => {
     if (!currentUser) return;
 
-    const socket = io(BASE_URL, {
-    // This forces Socket.io to send the bypass header during the initial polling phase
-    extraHeaders: {
-        "ngrok-skip-browser-warning": "69420"
-    }
-});
+    const socket = io(BASE_URL);
     socket.emit("join_vault", currentUser.id);
 
     socket.on("vault_updated", () => {
