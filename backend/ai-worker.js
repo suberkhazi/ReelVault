@@ -23,16 +23,18 @@ parentPort.on("message", async (data) => {
       const imgBuffer = fs.readFileSync(filePath);
 
       const rawImageData = jpeg.decode(imgBuffer, { useTArray: true });
-      const tensor = tf
-        .tensor3d(new Uint8Array(rawImageData.data), [
-          rawImageData.height,
-          rawImageData.width,
-          4,
-        ])
-        .slice([0, 0, 0], [-1, -1, 3]);
+      const tensor = tf.tensor3d(new Uint8Array(rawImageData.data), [
+        rawImageData.height,
+        rawImageData.width,
+        4,
+      ]);
 
-      const predictions = await visionModel.classify(tensor);
-      tensor.dispose(); // Free RAM instantly
+      const slicedTensor = initialTensor.slice([0, 0, 0], [-1, -1, 3]);
+
+      const predictions = await visionModel.classify(slicedTensor);
+
+      tensor.dispose();
+      slicedTensor.dispose();
 
       const tags = predictions
         .map((p) => p.className.split(",")[0].toLowerCase())
