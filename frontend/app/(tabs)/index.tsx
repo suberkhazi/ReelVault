@@ -589,10 +589,16 @@ export default function Home() {
       try {
         const formData = new FormData();
 
-        if (Platform.OS === "web") {
-          const responseFromUri = await fetch(asset.uri);
-          const blob = await responseFromUri.blob();
-          formData.append("mediaFile", blob, actualFilename);
+       if (Platform.OS === "web") {
+          if (asset.file) {
+            // expo-document-picker provides the raw browser File object natively
+            formData.append("mediaFile", asset.file, actualFilename);
+          } else {
+            // expo-image-picker provides a data URI
+            const responseFromUri = await fetch(asset.uri);
+            const blob = await responseFromUri.blob();
+            formData.append("mediaFile", blob, actualFilename);
+          }
         } else {
           const lower = actualFilename.toLowerCase();
           const fallbackType =
