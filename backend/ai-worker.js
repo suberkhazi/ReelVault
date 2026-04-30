@@ -23,13 +23,14 @@ parentPort.on("message", async (data) => {
       const imgBuffer = fs.readFileSync(filePath);
 
       const rawImageData = jpeg.decode(imgBuffer, { useTArray: true });
+      
       const tensor = tf.tensor3d(new Uint8Array(rawImageData.data), [
         rawImageData.height,
         rawImageData.width,
         4,
       ]);
 
-      const slicedTensor = initialTensor.slice([0, 0, 0], [-1, -1, 3]);
+      const slicedTensor = tensor.slice([0, 0, 0], [-1, -1, 3]);
 
       const predictions = await visionModel.classify(slicedTensor);
 
